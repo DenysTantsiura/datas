@@ -83,10 +83,12 @@ print(new_p1t1[new_p1t1['2014'] == new_p1t1['2014'].max()]['регіон'])
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html
 # https://www.delftstack.com/ru/howto/matplotlib/how-to-rotate-x-axis-tick-label-text-in-matplotlib/
 # https://stackoverflow.com/questions/4042192/reduce-left-and-right-margins-in-matplotlib-plot
+colors = []
+[colors.extend(['b', 'r', 'y', 'g']) for _ in range(len(new_p1t1['регіон']) // 4 + 1)]
 plt.bar(
         new_p1t1['регіон'],
         new_p1t1['2014'],
-        # color=['b', 'r', 'y', 'g'],
+        color=colors[:len(new_p1t1['регіон'])]
         # angle=-0.5
         )
 
@@ -105,30 +107,41 @@ plt.subplots_adjust(
                     )
 plt.show()
 
+
+
+
+
+
+
 # Частина друга: Аналіз файлів -> Hw2.2.ipynb
 # Проведіть аналіз файлу 2017_jun_final.csv. Файл містить результати опитування розробників у червні 2017 року.
 # Прочитайте файл 2017_jun_final.csv за допомогою методу read_csv
-#!!! to randome colors in last plt-bar!!!
-q = pd.read_csv('2017_jun_final.csv')
-print(q)
+p2t2 = pd.read_csv('2017_jun_final.csv')
+print(p2t2)
 
 # Прочитайте отриману таблицю, використовуючи метод head
-
+print(p2t2.head())
 
 # Визначте розмір таблиці за допомогою методу shape
-
+print(p2t2.shape)
 
 # Визначте типи всіх стовпців за допомогою dataframe.dtypes
-
+print(p2t2.dtypes)
 
 # Порахуйте, яка частка пропусків міститься в кожній колонці (використовуйте методи isnull та sum)
-
+map_p2t2 = p2t2.isnull()  # alias .isna() 
+print(map_p2t2)
+print(p2t3 := np.sum(map_p2t2, axis=0))
 
 # Видаліть усі стовпці з пропусками, крім стовпця 'Мова програмування'
-
+print(new_p2t2 := p2t2.drop([col for col in p2t3[:][0].T if p2t3[col][1] > 0 and p2t3[col][0] != 'Язык.программирования'], axis=1))
+# print(new_p1t1 := p1t1[0].drop(p1t1[0].shape[0]-1))
+# print(p1t1[0].drop(['2014'], axis=1))
 
 # Знову порахуйте, яка частка пропусків міститься в кожній колонці і переконайтеся, що залишився тільки стовпець 'Мова.програмування'
-
+map_p2t2 = p2t2.isnull()  # alias .isna() 
+print(map_p2t2)
+print(p2t3 := np.sum(map_p2t2, axis=0))
 
 # Видаліть усі рядки у вихідній таблиці за допомогою методу dropna
 
