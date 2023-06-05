@@ -8,7 +8,7 @@ temperature = pd.Series([23, 17, 17, 16, 15, 14, 17, 20], index=date)
 temperature.plot()
 plt.show()
 
-# ------------------------
+# ---simple 2d---------------------
 
 
 
