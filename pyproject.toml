@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "datas"
+version = "0.1.0"
+description = ""
+authors = ["DenysTantiura <111456850+DenysTantsiura@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.24.3"
+pandas = "^2.0.2"
+matplotlib = "^3.7.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.23.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

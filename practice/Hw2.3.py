@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame, Series
 
+
+pd.set_option('max_columns', 80)
 # Частина третя: Аналіз датасет c Kaggle.com
 # жирним шрифтом напис відповідь: потрібно буде вставити питання у файл і відповідь на нього.
 # Наприклад:
@@ -39,6 +41,7 @@ print(f'Відповідь: {p3t1.shape[0]}')  # 550
 # корисний атрибут датафрейму: 
 # columns (можна просто присвоїти список нових імен цьому атрибуту)
 p3t1.columns = ['name', 'author', 'user_rating', 'reviews', 'price', 'year', 'genre']
+# p3t1 = p3t1.rename(columns = {'Name': 'name', 'User rating': 'user_rating'})
 
 # Первинне дослідження даних
 # Перевірте, чи у всіх рядків вистачає даних: виведіть кількість пропусків (na) у кожному зі стовпців (використовуйте функції isna та sum)

@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame, Series
 
+
+pd.set_option('max_columns', 80)
 # Частина друга: Аналіз файлів -> Hw2.2.ipynb
 # Проведіть аналіз файлу 2017_jun_final.csv. Файл містить результати опитування розробників у червні 2017 року.
 # Прочитайте файл 2017_jun_final.csv за допомогою методу read_csv
@@ -97,3 +99,15 @@ print(python_data.describe())
 
 # Збережіть отриману таблицю в CSV файл
 python_data.to_csv("data_p2.csv", index=False)
+
+
+#
+"""
+plt.figure(figsize = (12, 8))
+ax = df['Speed'].plot(kind = 'kde', title = '...')
+ax.set_xlabel('Speed')
+plt.show()
+ax = df['Speed'].plot(kind = 'hist', bins = 20, title = '...')
+ax.set_xlabel('Speed')
+plt.show()
+"""
