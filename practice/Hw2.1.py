@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from scipy import stat
 
 # Частина перша -> Hw2.1.ipynb
 # Прочитайте дані за допомогою методу read_html з таблиці 
