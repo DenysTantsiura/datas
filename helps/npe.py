@@ -43,3 +43,7 @@ print(np.square(m10))
 
 print(m10 ** 0.5)
 print(np.sqrt(m10))
+
+a = np.array([0, 2])
+positive = a <= 1
+print(positive)

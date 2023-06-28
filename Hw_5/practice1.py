@@ -8,4 +8,4 @@ y = [0, 1]
 clf = svm.SVC()
 clf.fit(X, y)
 
-print(clf.predict([[2., 2.]]))  # [1]
+print(clf.predict([[0.5, 0.9]]))  # [1]

@@ -30,6 +30,8 @@ reg = LinearRegression().fit(X, y)
 print(reg.intercept_, reg.coef_, reg.score(X, y))
 
 
+
+
 # Logistic regression.
 
 def load_data(filename):
