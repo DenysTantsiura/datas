@@ -47,3 +47,29 @@ print(np.sqrt(m10))
 a = np.array([0, 2])
 positive = a <= 1
 print(positive)
+
+
+# ------------------
+"""
+import pandas as pd
+
+df = pd.read_csv('bikes_rent.csv')
+df.head(5)
+
+df['yr']  # Series
+df[['yr']]  # DataFrame
+df.loc[0]  # Series
+df.iloc[1]  # Series
+df.iloc[:, 1:4]  # DataFrame
+df.iloc[0:5, 5:8]  # DataFrame
+df.iloc[0:5]['yr']  # Series
+df.iloc[:, [0, 1, 3]]  # DataFrame
+df[0:3]  # DataFrame
+df[df.index % 2 == 0]  # DataFrame
+df[df['yr'] == 1]  # DataFrame
+df[['yr', 'temp']]  # DataFrame
+df[df.columns[:-1]]  # DataFrame
+df.iloc[:, 1]  # Series
+df.describe()
+df.filter(items=[col for col in ('a', 'b', 'c'))])
+"""
