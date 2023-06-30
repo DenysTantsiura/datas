@@ -48,7 +48,7 @@ a = np.array([0, 2])
 positive = a <= 1
 print(positive)
 
-
+print(a.shape[0])
 # ------------------
 """
 import pandas as pd

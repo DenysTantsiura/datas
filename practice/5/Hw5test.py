@@ -7,7 +7,10 @@ from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, f1_score, mean_absolute_error, mean_squared_error
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.svm import SVC
 # %matplotlib inline
 
 
@@ -99,8 +102,8 @@ def load_prepared_data(file_name: str='data1.bin') -> pd.DataFrame:
 
 
 if Path('data0.bin').is_file() and Path('data1.bin').is_file():
-    df = load_prepared_data()
-    classification_human_activity = load_prepared_data('data0.bin')
+    df = load_prepared_data('Hw_5/data1.bin')
+    classification_human_activity = load_prepared_data('Hw_5/data0.bin')
 
 else:
     df = get_data_to_dafaframe('data', df)
@@ -116,15 +119,31 @@ classification_human_activity
 
 X = df.iloc[:, 1:]
 y = df.iloc[:, 0]
-
-
-from sklearn.model_selection import train_test_split
+#
+y = y.values
 
 # Робимо вибірки - розділяємо всі дані на групи для тренування, валідаційну та тестову
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, shuffle=True)  # random_state=42
 X_valid, X_test, y_valid, y_test = train_test_split(X_test, y_test, test_size=0.5, shuffle=True)
 X_train.shape, X_valid.shape, X_test.shape, y_train.shape, y_valid.shape, y_test.shape
 
+model = SVC(kernel='linear', C=1, probability=True).fit(X_train, y_train)
+y_valid_pred = model.predict_proba(X_valid)  # [:, 2]  # probability for classification_human_activity[2] - для 'idle'
+print('-type(y_valid_pred)- '*5)
+print(type(y_valid_pred))
+print('- - '*32)
+print(y_valid_pred.head() if isinstance(y_valid, pd.DataFrame) else y_valid)
+print('- - '*32)
+a = pd.DataFrame(y_valid_pred)
+print('-a.head()- '*10)
+print(a.head())
+print('-a.idxmax(1)- '*10)
+print(a.idxmax(1))
+print('- - '*32)
+print(a.idxmax(1).values)
+print('- - '*32)
+
+# from_model_by_max = pd.DataFrame(y_valid_pred).idxmax(1).values
 
 #....
 # Тренуємо моделі (ймовірність - probability)
@@ -142,3 +161,5 @@ X_train.shape, X_valid.shape, X_test.shape, y_train.shape, y_valid.shape, y_test
 # y_valid_pred = svc_linear.predict_proba(X_valid)  # y_valid_pred = svc_linear.predict(X_valid)[:, 1]
 
 # roc_auc_score(y_valid, pd.DataFrame(y_valid_pred).idxmax(1).values)  # y_valid_pred
+
+# roc_auc_score(real_result, y_valid_pred)  #! multi_class must be in ('ovo', 'ovr')
