@@ -141,6 +141,7 @@ plt.ylabel('quantity', fontsize='small', color='midnightblue')
 plt.title('quantity of', fontsize=12)
 plt.show()
 
+# https://stackoverflow.com/questions/53917483/how-to-show-labels-in-seaborn-plots-no-handles-with-labels-found-to-put-in-lege
 
 p3t1 = pd.read_csv('helps/v2dataset.csv')
 p3t1.columns = ['name', 'author', 'user_rating',
