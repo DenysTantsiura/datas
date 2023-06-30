@@ -73,3 +73,5 @@ df.iloc[:, 1]  # Series
 df.describe()
 df.filter(items=[col for col in ('a', 'b', 'c'))])
 """
+# df = pd.DataFrame({})
+# df[df.columns[:-1]]
