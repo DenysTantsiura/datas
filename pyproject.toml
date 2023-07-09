@@ -16,6 +16,7 @@ pyqt5 = "^5.15.9"
 lxml = "^4.9.2"
 tsfresh = "^0.20.1"
 kneed = "^0.8.3"
+lightgbm = "^3.3.5"
 
 
 [tool.poetry.group.dev.dependencies]
