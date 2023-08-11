@@ -177,3 +177,5 @@ check2.1.ipynb
 .idea/
 practice/
 CIFAR-10-images-master/
+wandb/
+logs/
