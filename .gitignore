@@ -180,3 +180,4 @@ CIFAR-10-images-master/
 wandb/
 logs/
 *.hdf5
+helps/data/
