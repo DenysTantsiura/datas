@@ -181,3 +181,4 @@ wandb/
 logs/
 *.hdf5
 helps/data/
+/helps/adata
